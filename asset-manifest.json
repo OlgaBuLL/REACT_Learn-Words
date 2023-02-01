@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/REACT_Learn-Words/static/css/main.b4a34a0d.css",
+    "main.js": "/REACT_Learn-Words/static/js/main.7d4e9468.js",
+    "static/js/787.4e723e58.chunk.js": "/REACT_Learn-Words/static/js/787.4e723e58.chunk.js",
+    "static/media/logo.svg": "/REACT_Learn-Words/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/REACT_Learn-Words/index.html",
+    "main.b4a34a0d.css.map": "/REACT_Learn-Words/static/css/main.b4a34a0d.css.map",
+    "main.7d4e9468.js.map": "/REACT_Learn-Words/static/js/main.7d4e9468.js.map",
+    "787.4e723e58.chunk.js.map": "/REACT_Learn-Words/static/js/787.4e723e58.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4a34a0d.css",
+    "static/js/main.7d4e9468.js"
+  ]
+}
