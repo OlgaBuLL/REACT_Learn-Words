@@ -1,0 +1,120 @@
+.content {
+  /* background: rgb(238, 231, 246); */
+  /* background: indigo; */
+  /* padding: 3rem; */
+}
+.cards-container {
+  /* width: 80%; */
+  margin: 0 auto;
+  /* display: grid; */
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-rows: auto;
+  /* flex-wrap: wrap; */
+  /* column-count: 3; */
+  column-gap: 6rem;
+  row-gap: 3rem;
+  padding: 5rem 0;
+  /* border-radius: 22px; */
+  // box-shadow: 22px 22px 48px 12px rgba(0, 0, 0, 30%);
+  background: #768372;
+
+  /* background: indigo; */
+  /* background: skyblue; */
+  /* background: rgb(225, 209, 240); */
+  /* background: #fff; */
+}
+
+/* .word-card { */
+/* width: 270px; */
+/* display: flex; */
+/* padding: 0.5rem 2rem 1rem; */
+/* border-radius: 22px; */
+/* box-shadow: 25px -6px 37px 1px rgb(36 35 36 / 98%); */
+/* font-family: Arial, Helvetica, sans-serif; */
+/* background: rgb(225, 209, 240); */
+/* background: indigo; */
+/* color: #fff; */
+/* background: #fff; */
+/* background: #e6e8f1; */
+
+/* text-align: center; */
+/* } */
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+th {
+  max-width: max-content;
+  padding: 0 1rem;
+  border: 1px solid #e2eede;
+}
+
+.table-head {
+  color: #425a3a;
+  font-size: larger;
+  text-transform: uppercase;
+}
+
+.table-head th {
+  padding: 1rem;
+  /* border-top: 2px solid rgb(206, 216, 203); */
+  border-bottom: 4px solid rgb(173, 191, 168);
+}
+.word-card {
+  max-width: fit-content;
+  text-align: center;
+}
+.word-number {
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+.transcription,
+.topic {
+  font-weight: normal;
+}
+h2 {
+  color: #425a3a;
+}
+span {
+  font-size: small;
+}
+p {
+  text-transform: uppercase;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  // align-items: center;
+  column-gap: 0.5rem;
+}
+button {
+  background: #768372;
+  border: none;
+  padding: 0.5rem;
+}
+.selected {
+  background: #e1e7df;
+}
+/* .word-card div {
+  display: flex;
+} */
+/* .word-card div p { */
+/* display: flex; */
+/* justify-content: center; */
+/* column-gap: 2rem; */
+/* flex-direction: column; */
+/* } */
+.icon {
+  max-width: 35px;
+  // width: 100%;
+  object-fit: contain;
+}
+// .delete {
+//   max-width: 25px;
+//   align-self: center;
+// }

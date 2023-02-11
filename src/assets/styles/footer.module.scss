@@ -1,0 +1,26 @@
+.footer {
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: smaller;
+  /* color: white; */
+  color: #768372;
+}
+.contacts div {
+  display: flex;
+  column-gap: 0.5rem;
+}
+.rights div a:hover {
+  color: #91a48a;
+}
+.btn-up {
+  max-width: 50px;
+  background: #e1e7df;
+  border-radius: 20px;
+  padding: 0.5rem;
+  & img {
+    width: 100%;
+    object-fit: cover;
+  }
+}

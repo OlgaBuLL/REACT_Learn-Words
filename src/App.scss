@@ -1,0 +1,11 @@
+@import "./assets/styles/variables.module.scss";
+@import "./assets/styles/font.module.scss";
+@import "./assets/styles/vocabulary.module.scss";
+@import "./assets/styles/header.module.scss";
+@import "./assets/styles/footer.module.scss";
+
+.App {
+  font-family: "Montserrat";
+  text-align: center;
+  // background: $selectedColor;
+}
