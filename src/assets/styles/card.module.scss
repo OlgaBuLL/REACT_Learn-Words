@@ -1,0 +1,70 @@
+@import "./variables.module.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding: 3rem;
+  background: $selectedColor;
+}
+.card {
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem 1rem;
+  row-gap: 1rem;
+  border-radius: 22px;
+  box-shadow: 25px -6px 37px 1px rgb(36 35 36 / 98%);
+  //   background: indigo;
+  color: $borderColor;
+  background: $mainColor;
+  text-align: center;
+}
+
+.english {
+  margin: 0;
+  color: $borderColor;
+  font-weight: bold;
+  font-size: larger;
+}
+.transcription {
+  & p:first-child {
+    margin: 0;
+    font-size: small;
+    color: $textColor;
+  }
+  & p:last-child {
+    margin: 0;
+  }
+}
+.topic {
+  & p:first-child {
+    margin: 0;
+    font-size: small;
+    color: $textColor;
+  }
+  & p:last-child {
+    margin: 0;
+  }
+}
+
+button {
+  //   background: #768372;
+  color: $mainColor;
+  font-family: $mainFont;
+  margin: 1rem auto;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 15px;
+}
+
+.translation {
+  color: $borderColor;
+  font-size: large;
+  background: none;
+  margin: 0;
+  padding: 0;
+}

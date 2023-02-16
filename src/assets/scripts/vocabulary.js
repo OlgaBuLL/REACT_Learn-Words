@@ -14,7 +14,6 @@ const words = [
     russian: "еда",
     tags: "food",
     tags_json: '["u0441u0435u043cu047cu044f"]',
-    isSelected: true,
   },
   {
     id: "13149",

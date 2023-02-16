@@ -4,19 +4,19 @@
   align-items: center;
   justify-content: space-between;
   font-size: smaller;
-  /* color: white; */
-  color: #768372;
+  color: $textColor;
 }
 .contacts div {
   display: flex;
   column-gap: 0.5rem;
 }
 .rights div a:hover {
-  color: #91a48a;
+  color: $hoverColor;
 }
 .btn-up {
+  cursor: pointer;
   max-width: 50px;
-  background: #e1e7df;
+  background: $selectedColor;
   border-radius: 20px;
   padding: 0.5rem;
   & img {

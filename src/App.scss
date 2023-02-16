@@ -3,9 +3,15 @@
 @import "./assets/styles/vocabulary.module.scss";
 @import "./assets/styles/header.module.scss";
 @import "./assets/styles/footer.module.scss";
+@import "./assets/styles/card.module.scss";
 
 .App {
-  font-family: "Montserrat";
+  font-family: $mainFont;
   text-align: center;
-  // background: $selectedColor;
+  // background: $backgroundColor;
+}
+
+hr {
+  width: 90%;
+  margin: 0 auto;
 }
