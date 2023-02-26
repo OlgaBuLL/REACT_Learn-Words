@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "../../App.scss";
+
 import stylesCard from "../../assets/styles/card.module.scss";
 
 function Card(props) {
-  const { english, transcription, tags, russian } = props;
+  const { english, transcription, russian } = props;
 
   const [pressed, setPressed] = useState(false);
 
@@ -19,15 +19,7 @@ function Card(props) {
   return (
     <div className={stylesCard.card}>
       <p className={stylesCard.english}>{english}</p>
-      <div className={stylesCard.transcription}>
-        <p>transcription:</p>
-        <p>{transcription}</p>
-      </div>
-
-      <div className={stylesCard.topic}>
-        <p>topic:</p>
-        <p>{tags}</p>
-      </div>
+      <p className={stylesCard.transcription}>{transcription}</p>
       <button className={`${translation}`} onClick={handleChange}>
         {pressed ? (
           <p>
@@ -40,5 +32,4 @@ function Card(props) {
     </div>
   );
 }
-
 export default Card;
