@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="btn-up btn-up2">
-        <img src={btnUp}></img>
+        <img src={btnUp} alt="to top"></img>
       </div>
     </footer>
   );

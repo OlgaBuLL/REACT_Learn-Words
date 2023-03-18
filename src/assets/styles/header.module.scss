@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
-  color: $mainColor;
 }
 .App-logo {
   height: 10vmin;
@@ -26,15 +25,22 @@
   }
 }
 
-.header nav {
+h1 {
+  @include mainColor;
+}
+.header nav ul {
   display: flex;
+  padding: 0;
   column-gap: 2rem;
+  & li {
+    list-style: none;
+  }
 }
 a {
   text-decoration: none;
   color: $textColor;
 }
 a:hover {
-  color: $hoverColor;
+  @include mainColor;
   transition: all ease-in-out 0.2s;
 }

@@ -5,7 +5,7 @@ const words = [
     transcription: "[wɜːrk]",
     russian: "работа",
     tags: "work",
-    tags_json: '["u0441u0435u043cu044cu044f"]',
+    tags_json: "[\"u0441u0435u043cu044cu044f\"]",
   },
   {
     id: "13148",
@@ -13,7 +13,7 @@ const words = [
     transcription: "[fuːd]",
     russian: "еда",
     tags: "food",
-    tags_json: '["u0441u0435u043cu047cu044f"]',
+    tags_json: "[\"u0441u0435u043cu047cu044f\"]",
   },
   {
     id: "13149",
@@ -21,7 +21,7 @@ const words = [
     transcription: " [ˈtrævl]",
     russian: "путешествовать, ездить, ехать",
     tags: "travelling",
-    tags_json: '["u0441u0485u043cu044cu044f"]',
+    tags_json: "[\"u0441u0485u043cu044cu044f\"]",
   },
 ];
 

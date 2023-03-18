@@ -1,0 +1,11 @@
+{
+  "extends": ["react-app", "react-app/jest"],
+  "rules": {
+    "no-console": "error",
+    "prefer-const": "error",
+    "quotes": ["error", "double"],
+    "jsx-quotes": ["error", "prefer-double"],
+    // "max-len": [{ "code": 60 }],
+    "indent": ["error", 2]
+  }
+}

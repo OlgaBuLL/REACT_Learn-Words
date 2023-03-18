@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-// import ShowCardMap from "./ShowCardMap";
+
 import stylesCard from "../../assets/styles/card.module.scss";
 import words from "../../assets/scripts/vocabulary";
+
+import prev from "../../assets/images/left-arrow.png";
+import next from "../../assets/images/right-arrow.png";
 
 function ShowCard() {
   // const { english, transcription, russian } = props;
   const [index, setIndex] = useState(0);
-  let word = words[index];
-  console.log(index);
+  const word = words[index];
+  // console.log(index);
 
   // NEXT card
   const NextCard = () => {
@@ -22,7 +25,7 @@ function ShowCard() {
 
   let pressedNextArrow;
   if (clickedNext) {
-    pressedNextArrow = "pressedNextArrow";
+    pressedNextArrow = "active";
   }
 
   // PREV card
@@ -38,7 +41,7 @@ function ShowCard() {
 
   let pressedPrevArrow;
   if (clickedPrev) {
-    pressedPrevArrow = " pressedPrevArrow";
+    pressedPrevArrow = "active";
   }
 
   //перевод слова
@@ -56,9 +59,13 @@ function ShowCard() {
   // отрисовка компонента
   return (
     <div className="showCard">
-      <button className={`${pressedPrevArrow}`} onClick={PrevCard}>
-        Prev
-      </button>
+      <img
+        className={`arrow ${pressedPrevArrow}`}
+        onClick={PrevCard}
+        src={prev}
+        alt="Previous card"
+      />
+
       <div className={stylesCard.card} {...index}>
         <p className={stylesCard.english}>{word.english}</p>
         <p className={stylesCard.transcription}>{word.transcription}</p>
@@ -72,9 +79,13 @@ function ShowCard() {
           )}
         </button>
       </div>
-      <button className={`${pressedNextArrow}`} onClick={NextCard}>
-        Next
-      </button>
+
+      <img
+        className={`arrow ${pressedNextArrow}`}
+        onClick={NextCard}
+        src={next}
+        alt="Next card"
+      />
     </div>
   );
 }

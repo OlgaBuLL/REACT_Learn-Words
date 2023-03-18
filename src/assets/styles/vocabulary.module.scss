@@ -1,51 +1,55 @@
 @import "./variables.module.scss";
 
 .content {
-  /* background: rgb(238, 231, 246); */
-  /* background: indigo; */
-  /* padding: 3rem; */
-}
-.container {
-  margin: 0 auto;
-  padding: 5rem 0;
-  /* border-radius: 22px; */
-  // box-shadow: 22px 22px 48px 12px rgba(0, 0, 0, 30%);
-  background: $mainColor;
-  /* background: indigo; */
-  /* background: rgb(225, 209, 240); */
+  width: fit-content;
+  margin: 4rem auto 6rem;
 }
 
 table {
-  width: 80%;
   margin: 0 auto;
+  width: 80%;
   border-collapse: collapse;
-  background: #ffffff;
+  background: $backgroundColor;
+  box-shadow: 0px 0px 37px 13px rgb(0 0 0 / 55%);
 }
 
 th {
   max-width: max-content;
-  padding: 0 1rem;
   border: 1px solid $borderColor;
+  background: $backgroundColor;
+  padding: 0 1rem;
 }
-
-.head {
-  color: $textColor;
-  font-size: large;
-  text-transform: uppercase;
+input {
+  cursor: pointer;
+  background: $cardBackground;
+  color: $mainText;
+  font-family: $mainFont;
+  max-width: 100px;
+  border: none;
+  // max-width: fit-content;
+  outline: none;
+  text-align: center;
+  &:focus {
+    border: 1px solid $borderColor;
+  }
 }
 
 .head th {
-  padding: 1rem;
+  @include mainColor;
   max-width: fit-content;
-  border-bottom: 4px solid $hoverColor;
+  font-weight: lighter;
+  text-transform: uppercase;
+  padding: 1rem;
+  border-bottom: 4px solid $borderColor;
 }
 .word-row {
   max-width: fit-content;
   text-align: center;
   &:hover {
-    border-bottom: 2px solid $hoverColor;
+    border-bottom: 2px solid $borderColor;
   }
 }
+
 .wordId {
   color: $textColor;
   font-size: small;
@@ -53,7 +57,7 @@ th {
 }
 
 .english {
-  color: $mainColor;
+  @include mainColor;
 }
 .transcription,
 .topic,
@@ -65,24 +69,19 @@ th {
 .buttons {
   display: flex;
   justify-content: flex-end;
-  // align-items: center;
   column-gap: 0.5rem;
+}
+.icon {
+  cursor: pointer;
+  max-width: 35px;
+  object-fit: contain;
+  transition: all ease-in-out 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .selected {
   background: $selectedColor;
   border: none;
-}
-
-.icon {
-  max-width: 35px;
-  object-fit: contain;
-}
-
-input {
-  font-family: $mainFont;
-  max-width: 100px;
-  border: none;
-  // max-width: fit-content;
-  text-align: center;
 }

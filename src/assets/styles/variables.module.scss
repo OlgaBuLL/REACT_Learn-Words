@@ -1,8 +1,23 @@
 $mainFont: "Montserrat";
 
-// $backgroundColor: rgb(0, 0, 0);
-$mainColor: #768372;
-$textColor: #425a3a;
-$hoverColor: #71806c;
-$borderColor: #e2eede;
-$selectedColor: #e1e7df;
+$backgroundColor: #1e1e1e;
+$cardBackground: #373737;
+
+@mixin mainColor {
+  background-image: linear-gradient(#aa9053, #e9d796, #f8e29f, #b8984d);
+  background-clip: text;
+  color: transparent;
+}
+$goldBg: linear-gradient(-205deg, #aa9053, #e0cf90, #f8e29f, #e0cf90, #b8984d);
+
+// $textColor: #5e6264;
+// $textColor: #69665e;
+$textColor: #7d786a;
+
+$mainText: #fcedc2;
+
+// $borderColor: #69675c;
+$borderColor: #424138;
+
+// $selectedColor: #252525;
+$selectedColor: #b84747;

@@ -8,10 +8,75 @@
 .App {
   font-family: $mainFont;
   text-align: center;
-  // background: $backgroundColor;
+  background: $backgroundColor;
 }
 
-hr {
+.container {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+.footer-line {
   width: 90%;
   margin: 0 auto;
+  border: none;
+  background: $borderColor;
+  height: 1px;
+}
+.error {
+  position: relative;
+  max-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem auto 6rem;
+  font-size: 3vw;
+  color: $textColor;
+  z-index: 10;
+  & p {
+    margin: 0;
+    &:nth-child(2) {
+      position: absolute;
+      top: 0.1rem;
+      color: #aa9053;
+      font-size: 13vw;
+      animation: error 3s linear infinite;
+    }
+    &:nth-child(4) {
+      margin-top: 15rem;
+    }
+  }
+}
+
+.error:after {
+  animation: error 3s linear -1.5s;
+}
+@keyframes error {
+  0% {
+    opacity: 0;
+    transform: translate(0, -50px);
+  }
+  10%,
+  90% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 50px);
+  }
+}
+
+.home {
+  @include mainColor;
+}
+.error-404 {
+  z-index: -100;
+  position: absolute;
+  @include mainColor;
+  font-size: 30vw;
+  color: rgb(30, 30, 30, 10%);
 }
