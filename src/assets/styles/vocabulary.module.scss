@@ -16,12 +16,11 @@ table {
 th {
   max-width: max-content;
   border: 1px solid $borderColor;
-  background: $backgroundColor;
   padding: 0 1rem;
 }
 input {
   cursor: pointer;
-  background: $cardBackground;
+  background: $backgroundColor;
   color: $mainText;
   font-family: $mainFont;
   max-width: 100px;

@@ -30,7 +30,7 @@
   justify-content: center;
   align-items: center;
   margin: 4rem auto 6rem;
-  font-size: 3vw;
+  font-size: 2vw;
   color: $textColor;
   z-index: 10;
   & p {
@@ -39,7 +39,7 @@
       position: absolute;
       top: 0.1rem;
       color: #aa9053;
-      font-size: 13vw;
+      font-size: 8vw;
       animation: error 3s linear infinite;
     }
     &:nth-child(4) {
@@ -77,6 +77,6 @@
   z-index: -100;
   position: absolute;
   @include mainColor;
-  font-size: 30vw;
+  font-size: 20vw;
   color: rgb(30, 30, 30, 10%);
 }

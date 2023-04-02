@@ -1,58 +1,7 @@
 @import "./variables.module.scss";
 
-.card {
-  margin: 0 auto;
-  width: 230px;
-  height: 250px;
-  align-items: center;
-  padding: 1.5rem 1rem 1rem;
-  display: grid;
-  border-radius: 18px;
-  // box-shadow: 25px -6px 37px 1px rgba(0, 0, 0, 0.98);
-  box-shadow: 0px 22px 37px 0px rgb(0 0 0 / 98%);
-  background: $cardBackground;
-}
-
-.english {
-  @include mainColor;
-  margin: 0;
-  font-weight: bold;
-  font-size: xx-large;
-}
-.transcription {
-  margin: 0;
-  color: $textColor;
-}
-
-button {
-  background: $goldBg;
-  font-family: $mainFont;
-  font-weight: bold;
-  margin: 1rem auto;
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 6px;
-  transition: all ease-in-out 0.2s;
-  &:hover {
-    box-shadow: 0px 5px 12px 0px rgb(0 0 0 / 98%);
-  }
-}
-
-.translation {
-  @include mainColor;
-  font-size: large;
-  margin: 0;
-  padding: 0;
-  transition: none;
-  &:hover {
-    color: #e0cf90;
-    background: none;
-    box-shadow: none;
-  }
-}
-
 .showCard {
-  margin: 4rem auto 6rem;
+  margin: 4rem auto 3rem;
   max-width: fit-content;
   display: flex;
   align-items: center;
@@ -76,4 +25,88 @@ button {
       transform: translate(8px);
     }
   }
+}
+
+.card {
+  margin: 0 auto;
+  width: 230px;
+  height: 260px;
+  align-items: center;
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 15% 1fr 20%;
+  border-radius: 18px;
+  // box-shadow: 25px -6px 37px 1px rgba(0, 0, 0, 0.98);
+  box-shadow: 0px 22px 37px 0px rgb(0 0 0 / 98%);
+  background: $cardBackground;
+  transition: all ease-in 2s;
+  & div {
+    align-self: flex-end;
+  }
+  & p:last-child {
+    cursor: pointer;
+    margin: 0;
+    @include mainColor;
+  }
+}
+
+.english {
+  @include mainColor;
+  margin: 0;
+  font-weight: bold;
+  font-size: xx-large;
+}
+.transcription {
+  margin: 0;
+  color: $textColor;
+}
+
+button {
+  cursor: pointer;
+  background: $goldBg;
+  font-family: $mainFont;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 6px;
+  transition: all ease-in 0.2s;
+  &:hover {
+    box-shadow: 0px 5px 12px 0px rgb(0 0 0 / 98%);
+  }
+  &:focus {
+    transition: all ease-in 0.3s;
+    outline: none;
+    border: 2px solid $selectedColor;
+    // border: 2px solid red;
+  }
+}
+
+.translation {
+  @include mainColor;
+  font-size: large;
+  margin: 0;
+  padding: 0;
+  transition: none;
+  transition: all ease-in 0.7s;
+  &:hover {
+    color: #e0cf90;
+    background: none;
+    box-shadow: none;
+  }
+}
+
+.learnedWords {
+  display: flex;
+  align-items: center;
+  color: $textColor;
+}
+
+.count {
+  @include mainColor;
+  font-weight: bold;
+}
+
+.total-words {
+  color: $textColor;
 }

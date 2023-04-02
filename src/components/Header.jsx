@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 
-import logo from "../assets/images/learn.png";
+import logo from "../assets/images/abc-dark.svg";
 
 export default function Header() {
   return (
@@ -15,7 +15,13 @@ export default function Header() {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/vocabulary">Vocabulary</Link>
+          </li>
+          <li>
             <Link to="/game">Game</Link>
+          </li>
+          <li>
+            <Link to="/favourites">Favourites</Link>
           </li>
         </ul>
       </nav>
