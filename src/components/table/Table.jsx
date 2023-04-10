@@ -106,7 +106,7 @@ function Table(props) {
                 className={`${invalidInput(inputText.id)}`}
                 onChange={handleInputChange}
               />
-              <p className="error-message">{errorID}</p>
+              {/* <p className="error-message">{errorID}</p> */}
             </th>
             <th>
               <input
@@ -115,7 +115,7 @@ function Table(props) {
                 className={`${invalidInput(inputText.english)}`}
                 onChange={handleInputChange}
               />
-              <p className="error-message">{errorEnglish}</p>
+              {/* <p className="error-message">{errorEnglish}</p> */}
             </th>
             <th>
               <input
@@ -140,7 +140,7 @@ function Table(props) {
                 className={`${invalidInput(inputText.russian)}`}
                 onChange={handleInputChange}
               />
-              <p className="error-message">{errorRussian}</p>
+              {/* <p className="error-message">{errorRussian}</p> */}
             </th>
             <th className="edit-buttons">
               <div className="buttons">
