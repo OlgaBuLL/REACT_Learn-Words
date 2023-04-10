@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/REACT_Learn-Words/static/css/main.556c4c66.css",
-    "main.js": "/REACT_Learn-Words/static/js/main.e0798342.js",
+    "main.css": "/REACT_Learn-Words/static/css/main.c75e20ba.css",
+    "main.js": "/REACT_Learn-Words/static/js/main.996541c7.js",
     "static/js/787.4e723e58.chunk.js": "/REACT_Learn-Words/static/js/787.4e723e58.chunk.js",
     "static/media/Montserrat-VariableFont_wght.ttf": "/REACT_Learn-Words/static/media/Montserrat-VariableFont_wght.3faa3eef13649db02044.ttf",
     "static/media/abc-dark.svg": "/REACT_Learn-Words/static/media/abc-dark.bb827577e5563a3c61ed2bf8bc05dc57.svg",
     "static/media/abc.svg": "/REACT_Learn-Words/static/media/abc.51f4357bac20e65cbd0dec5c687d92d8.svg",
     "index.html": "/REACT_Learn-Words/index.html",
-    "main.556c4c66.css.map": "/REACT_Learn-Words/static/css/main.556c4c66.css.map",
-    "main.e0798342.js.map": "/REACT_Learn-Words/static/js/main.e0798342.js.map",
+    "main.c75e20ba.css.map": "/REACT_Learn-Words/static/css/main.c75e20ba.css.map",
+    "main.996541c7.js.map": "/REACT_Learn-Words/static/js/main.996541c7.js.map",
     "787.4e723e58.chunk.js.map": "/REACT_Learn-Words/static/js/787.4e723e58.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.556c4c66.css",
-    "static/js/main.e0798342.js"
+    "static/css/main.c75e20ba.css",
+    "static/js/main.996541c7.js"
   ]
 }
