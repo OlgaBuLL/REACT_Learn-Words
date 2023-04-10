@@ -11,13 +11,12 @@ function ShowCard() {
   const word = words[index];
   const [counter, setTotalCount] = useState(1);
 
-  const [learnedWords, setlearnedWords] = useState(0);
-  const [viewCard, setViewCard] = useState(false);
+  const [learnedWordsIndex, setlearnedWordsIndex] = useState(0);
+  const [learnedWords, setLearnedWords] = useState([]);
 
   // NEXT card
   const NextCard = () => {
     if (pressed) handleTranslate();
-    setViewCard(false);
 
     if (index + 1 >= words.length) {
       setIndex(0);
@@ -28,7 +27,7 @@ function ShowCard() {
       //номер предыдущей карточки
       setTotalCount(counter + 1);
     }
-
+    console.log(learnedWords);
     setNextClick(!clickedNext);
   };
 
@@ -42,7 +41,6 @@ function ShowCard() {
   // PREV card
   const PrevCard = () => {
     if (pressed) handleTranslate();
-    setViewCard(false);
 
     if (index - 1 < 0) {
       setIndex(words.length - 1);
@@ -78,9 +76,9 @@ function ShowCard() {
 
   //счетчик выученных слов
   const handleLearned = () => {
-    if (viewCard === false) {
-      setViewCard(!viewCard);
-      setlearnedWords(learnedWords + 1);
+    if (!learnedWords.includes(word)) {
+      learnedWords.push(word);
+      setlearnedWordsIndex(learnedWordsIndex + 1);
     }
   };
 
@@ -88,7 +86,7 @@ function ShowCard() {
   const ref = useRef();
   useEffect(() => {
     ref.current.focus();
-  }, []);
+  }, [word]);
 
   // отрисовка компонента
   return (
@@ -126,7 +124,8 @@ function ShowCard() {
       </div>
       <div className="total-words">{counter + "/" + words.length}</div>
       <div className="learnedWords">
-        <p>Learned words: </p> <span className="count"> {learnedWords}</span>
+        <p>Learned words: </p>{" "}
+        <span className="count"> {learnedWordsIndex}</span>
       </div>
     </>
   );

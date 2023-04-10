@@ -77,7 +77,7 @@ button {
   &:focus {
     transition: all ease-in 0.3s;
     outline: none;
-    border: 2px solid $selectedColor;
+    border: 2px outset $selectedColor;
     // border: 2px solid red;
   }
 }

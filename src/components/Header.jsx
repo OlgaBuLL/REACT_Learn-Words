@@ -5,14 +5,14 @@ import logo from "../assets/images/abc-dark.svg";
 export default function Header() {
   return (
     <header className="header">
-      <Link to="/">
+      <Link to="/REACT_Learn-Words">
         <img src={logo} className="App-logo" alt="Logo" />
       </Link>
       <h1>Learn Words</h1>
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/REACT_Learn-Words">Home</Link>
           </li>
           <li>
             <Link to="/vocabulary">Vocabulary</Link>

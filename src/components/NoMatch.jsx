@@ -10,7 +10,7 @@ export default function Error(props) {
       <p> I don't know what u r looking for here</p>
       <p>
         It's better to go
-        <Link to="/">
+        <Link to="/REACT_Learn-Words">
           <span className="home"> home</span>{" "}
         </Link>
       </p>

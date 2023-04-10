@@ -10,12 +10,12 @@ export default function Footer() {
         <div>
           <div>
             <a href="https://t.me/bio_ol23">
-              <img className="icon" src={telegram} alt={telegram} />
+              <img className="footer-icon icon" src={telegram} alt={telegram} />
             </a>
           </div>
           <div>
             <a href="mailto:oska43@mail.ru">
-              <img className="icon" src={email} alt={email} />
+              <img className="footer-icon icon" src={email} alt={email} />
             </a>
           </div>
         </div>
