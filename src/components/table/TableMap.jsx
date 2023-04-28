@@ -1,12 +1,21 @@
+import Table from "./Table.jsx";
+import { Context } from "../../context/Context.js";
+import { useContext, useState } from "react";
+
+import AddWord from "../AddWord";
+// import saveIcon from "../../assets/images/save.png";
+// import cancelIcon from "../../assets/images/right.png";
+
 import "../../App.scss";
 import stylesTable from "../../assets/styles/vocabulary.module.scss";
 
-import Table from "./Table.jsx";
-import words from "../../assets/scripts/vocabulary";
+export default function TableMap() {
+  const { dictionary } = useContext(Context);
 
-function TableMap() {
   return (
     <div className={stylesTable.content} id="home">
+      <AddWord />
+
       <table>
         <thead className={stylesTable.head}>
           <tr>
@@ -19,7 +28,7 @@ function TableMap() {
           </tr>
         </thead>
         <tbody>
-          {words.map((word, i) => (
+          {dictionary.map((word, i) => (
             <Table
               key={i}
               id={word.id}
@@ -34,5 +43,3 @@ function TableMap() {
     </div>
   );
 }
-
-export default TableMap;

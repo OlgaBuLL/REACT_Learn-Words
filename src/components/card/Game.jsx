@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 
 import stylesCard from "../../assets/styles/card.module.scss";
 import words from "../../assets/scripts/vocabulary";
+// import dictionary from "../table/TableMap";
+// import TableMap from "../table/TableMap";
 
 import prev from "../../assets/images/left-arrow.png";
 import next from "../../assets/images/right-arrow.png";
@@ -9,6 +11,7 @@ import next from "../../assets/images/right-arrow.png";
 function ShowCard() {
   const [index, setIndex] = useState(0);
   const word = words[index];
+  // const word = dictionary[index];
   const [counter, setTotalCount] = useState(1);
 
   const [learnedWordsIndex, setlearnedWordsIndex] = useState(0);
@@ -90,7 +93,7 @@ function ShowCard() {
 
   // отрисовка компонента
   return (
-    <>
+    <div>
       <div className="showCard">
         <img
           className={`arrow ${pressedPrevArrow}`}
@@ -109,7 +112,9 @@ function ShowCard() {
                 <b>{word.russian}</b>
               </p>
             ) : (
-              <button ref={ref}>Translate</button>
+              <button className="game-btn" ref={ref}>
+                Translate
+              </button>
             )}
           </div>
           <p onClick={handleLearned}>I know this word</p>
@@ -127,7 +132,7 @@ function ShowCard() {
         <p>Learned words: </p>{" "}
         <span className="count"> {learnedWordsIndex}</span>
       </div>
-    </>
+    </div>
   );
 }
 
