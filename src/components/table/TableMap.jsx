@@ -1,16 +1,27 @@
-import Table from "./Table.jsx";
-import { Context } from "../../context/Context.js";
-import { useContext, useState } from "react";
+import { useState, useEffect } from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+import { postAction } from "../../redux/actions.js";
+import { getWordsCollection } from "../../redux/actions.js";
+import GET from "../../redux/GET.js";
+
+import Table from "./Table.jsx";
 import AddWord from "../AddWord";
-// import saveIcon from "../../assets/images/save.png";
-// import cancelIcon from "../../assets/images/right.png";
 
 import "../../App.scss";
 import stylesTable from "../../assets/styles/vocabulary.module.scss";
 
 export default function TableMap() {
-  const { dictionary } = useContext(Context);
+  const dictionary = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function get() {
+      const data = await GET.getWordsCollection();
+      dispatch(getWordsCollection(data));
+    }
+    get();
+  }, [dispatch, dictionary]);
 
   return (
     <div className={stylesTable.content} id="home">

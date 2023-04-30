@@ -1,4 +1,5 @@
 import React, { Suspense, useState } from "react";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { translation, TranslationContext } from "./context/WordContextProvider";
@@ -17,6 +18,7 @@ import ErrorNoNatch from "./components/NoMatch";
 
 function App() {
   const [words, setWords] = useState("english");
+
   return (
     <Apiwords>
       <TranslationContext.Provider value={translation[words]}>

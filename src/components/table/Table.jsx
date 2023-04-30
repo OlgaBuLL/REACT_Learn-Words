@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-// import {motion} from "framer-motion";
 import { Context } from "../../context/Context";
+import { motion } from "framer-motion";
 
 import "../../App.scss";
 import stylesTable from "../../assets/styles/vocabulary.module.scss";
@@ -76,7 +76,7 @@ export default function Table(props) {
       inputText.tags !== tags ||
       inputText.russian !== russian
     ) {
-      inputText.id = id;
+      // inputText.id = id;
       inputText.english = english;
       inputText.transcription = transcription;
       inputText.tags = tags;
@@ -91,7 +91,17 @@ export default function Table(props) {
   }
   return (
     <>
-      <tr className={`word-row ${activeCard}`} onClick={checkInputs}>
+      <motion.tr
+        className={`word-row ${activeCard}`}
+        onClick={checkInputs}
+        initial={{ opacity: 0.2, scale: 3 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 150,
+          duration: 4,
+        }}
+      >
         {pressed ? (
           <>
             <th>
@@ -194,7 +204,8 @@ export default function Table(props) {
             </th>
           </>
         )}
-      </tr>
+      </motion.tr>
+      {/* </motion.tr> */}
     </>
   );
 }

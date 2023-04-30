@@ -1,10 +1,16 @@
+import { motion } from "framer-motion";
 import email from "../assets/images/envelope.png";
 import telegram from "../assets/images/telegram.png";
 import btnUp from "../assets/images/btn-up.png";
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <motion.footer
+      className="footer"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       <div className="contacts">
         <p>CONTACTS</p>
         <div>
@@ -41,6 +47,6 @@ export default function Footer() {
       <div className="btn-up btn-up2">
         <img src={btnUp} alt="to top"></img>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

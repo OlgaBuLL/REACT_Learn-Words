@@ -38,9 +38,8 @@ main {
   gap: 1em;
   color: $textColor;
   & img {
-    max-width: 256px;
-    // object-fit: cover;
-    width: 50%;
+    max-width: 300px;
+    width: 100%;
   }
   & div {
     line-height: 150%;
