@@ -11,6 +11,7 @@
   background: $backgroundColor;
   font-family: $mainFont;
   text-align: center;
+  min-height: 100vh;
 }
 
 select {
@@ -112,4 +113,8 @@ main {
   @include mainColor;
   font-size: 20vw;
   color: rgb(30, 30, 30, 10%);
+}
+
+.favourite {
+  color: $textColor;
 }
