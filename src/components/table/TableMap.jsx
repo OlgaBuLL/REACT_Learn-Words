@@ -1,12 +1,32 @@
+import { useState, useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import { postAction } from "../../redux/actions.js";
+import { getWordsCollection } from "../../redux/actions.js";
+import GET from "../../redux/GET.js";
+
+import Table from "./Table.jsx";
+import AddWord from "../AddWord";
+
 import "../../App.scss";
 import stylesTable from "../../assets/styles/vocabulary.module.scss";
 
-import Table from "./Table.jsx";
-import words from "../../assets/scripts/vocabulary";
+export default function TableMap() {
+  const dictionary = useSelector((state) => state);
+  const dispatch = useDispatch();
 
-function TableMap() {
+  useEffect(() => {
+    async function get() {
+      const data = await GET.getWordsCollection();
+      dispatch(getWordsCollection(data));
+    }
+    get();
+  }, [dispatch, dictionary]);
+
   return (
     <div className={stylesTable.content} id="home">
+      <AddWord />
+
       <table>
         <thead className={stylesTable.head}>
           <tr>
@@ -19,7 +39,7 @@ function TableMap() {
           </tr>
         </thead>
         <tbody>
-          {words.map((word, i) => (
+          {dictionary.map((word, i) => (
             <Table
               key={i}
               id={word.id}
@@ -34,5 +54,3 @@ function TableMap() {
     </div>
   );
 }
-
-export default TableMap;

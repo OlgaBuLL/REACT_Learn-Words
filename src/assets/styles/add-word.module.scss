@@ -1,0 +1,59 @@
+@import "./variables.module.scss";
+
+.addWord-section {
+  display: grid;
+  margin-bottom: 3rem;
+}
+.showAddNewWord {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  margin-bottom: 3em;
+  float: left;
+  & div {
+    display: flex;
+    gap: 10px;
+  }
+  & p {
+    @include mainColor;
+  }
+  & .input-addWord {
+    background: $mainText;
+    border: 2px solid $borderColor;
+    text-align: center;
+    max-width: 120px;
+  }
+}
+.hideAddNewWord {
+  display: none;
+}
+.addWord-btn {
+  justify-self: end;
+  cursor: pointer;
+  background: $goldBg;
+  font-family: $mainFont;
+  font-weight: bold;
+  padding: 1rem;
+  border: none;
+  border-radius: 6px;
+  transition: all ease-in 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+.btnHide {
+  display: none;
+}
+
+.success-section {
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+}
+.success {
+  font-family: $mainFont;
+  color: rgb(75, 185, 75);
+  font-size: 16px;
+}

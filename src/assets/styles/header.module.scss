@@ -1,10 +1,11 @@
 .header {
-  min-height: 10vh;
+  min-height: 15vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: calc(10px + 2vmin);
+  // font-size: calc(10px + 2vmin);
 }
+
 .App-logo {
   height: 10vmin;
   pointer-events: none;
@@ -26,6 +27,11 @@
 }
 
 h1 {
+  margin: 0;
+  font-size: 60px;
+}
+
+.title {
   @include mainColor;
 }
 .header nav ul {

@@ -4,16 +4,49 @@
 @import "./assets/styles/header.module.scss";
 @import "./assets/styles/footer.module.scss";
 @import "./assets/styles/card.module.scss";
+@import "./assets/styles/context.module.scss";
+@import "./assets/styles/add-word.module.scss";
 
 .App {
+  background: $backgroundColor;
   font-family: $mainFont;
   text-align: center;
+}
+
+select {
   background: $backgroundColor;
+  color: $textColor;
+  font-family: $mainFont;
+  border-radius: 3px;
+  font-size: small;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1170px;
+}
+main {
+  margin: 4em auto;
+  display: flex;
+  justify-content: center;
+}
+.home-page {
+  display: flex;
+  flex-wrap: wrap;
+  place-items: center;
+  place-content: center;
+  gap: 1em;
+  color: $textColor;
+  & img {
+    max-width: 300px;
+    width: 100%;
+  }
+  & div {
+    line-height: 150%;
+    & a span {
+      font-size: medium;
+    }
+  }
 }
 .footer-line {
   width: 90%;

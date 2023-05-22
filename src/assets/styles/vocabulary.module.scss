@@ -2,7 +2,6 @@
 
 .content {
   width: fit-content;
-  margin: 4rem auto 6rem;
 }
 
 table {
@@ -18,13 +17,12 @@ th {
   border: 1px solid $borderColor;
   padding: 0 1rem;
 }
-input {
+.input-table {
   background: $backgroundColor;
   color: $mainText;
   font-family: $mainFont;
-  max-width: 100px;
+  max-width: 120px;
   border: none;
-  // max-width: fit-content;
   outline: none;
   text-align: center;
   &:focus {
@@ -64,10 +62,19 @@ input {
   font-weight: normal;
 }
 
-.buttons {
-  display: flex;
-  justify-content: flex-end;
-  column-gap: 0.5rem;
+.edit-buttons {
+  padding: 0 5px;
+  & .table-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    & button {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+  }
 }
 
 .save,
@@ -115,24 +122,3 @@ input {
   font-size: 10px;
   margin: 4px auto;
 }
-// input {
-//   font-family: "Montserrat";
-//   color: var(--color-gray);
-//   border: 1px solid var(--color-pink);
-//   font-size: 15px;
-//   padding: 8px 10px;
-//   border-radius: 3px;
-//   transition: all 0.3s ease;
-// }
-
-// input:focus, .cardCancelButton:focus,
-// .cardDeleteButton:focus, .cardEditButton:focus,
-// .cardSaveButton:focus {
-//   outline: none;
-//   box-shadow: 0 0 0 3px var(--color-pinklite);
-// }
-
-// .cardEditButton:active, .cardDeleteButton:active,
-// .cardSaveButton:active, .cardCancelButton:active {
-//   box-shadow: 2px 2px 5px var(--color-pink);
-// }

@@ -1,14 +1,28 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import GET from "../../redux/GET";
+import { getWordsCollection } from "../../redux/actions";
+// import words from "../../assets/scripts/vocabulary";
 
+import { motion } from "framer-motion";
 import stylesCard from "../../assets/styles/card.module.scss";
-import words from "../../assets/scripts/vocabulary";
-
 import prev from "../../assets/images/left-arrow.png";
 import next from "../../assets/images/right-arrow.png";
 
 function ShowCard() {
+  const words = useSelector((state) => state);
   const [index, setIndex] = useState(0);
   const word = words[index];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function get() {
+      const data = await GET.getWordsCollection();
+      dispatch(getWordsCollection(data));
+    }
+    get();
+  }, [dispatch, words]);
+
   const [counter, setTotalCount] = useState(1);
 
   const [learnedWordsIndex, setlearnedWordsIndex] = useState(0);
@@ -27,7 +41,6 @@ function ShowCard() {
       //номер предыдущей карточки
       setTotalCount(counter + 1);
     }
-    console.log(learnedWords);
     setNextClick(!clickedNext);
   };
 
@@ -90,44 +103,82 @@ function ShowCard() {
 
   // отрисовка компонента
   return (
-    <>
+    <div>
       <div className="showCard">
-        <img
-          className={`arrow ${pressedPrevArrow}`}
-          onClick={PrevCard}
-          src={prev}
-          alt="Previous card"
-        />
+        <motion.div
+          initial={{ opacity: 0.2, scale: 3 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 150,
+            duration: 3,
+          }}
+        >
+          <img
+            className={`arrow ${pressedPrevArrow}`}
+            onClick={PrevCard}
+            src={prev}
+            alt="Previous card"
+          />
+        </motion.div>
 
-        <div className={stylesCard.card} {...index}>
-          <p className={stylesCard.english}>{word.english}</p>
-          <p className={stylesCard.transcription}>{word.transcription}</p>
-          <div onClick={handleTranslate}>
-            {" "}
-            {pressed ? (
-              <p className={`${translation}`}>
-                <b>{word.russian}</b>
-              </p>
-            ) : (
-              <button ref={ref}>Translate</button>
-            )}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ type: "spring", duration: 1 }}
+        >
+          <div className={stylesCard.card} {...index}>
+            <p className={stylesCard.english}>{word.english}</p>
+            <p className={stylesCard.transcription}>{word.transcription}</p>
+            <div onClick={handleTranslate}>
+              {" "}
+              {pressed ? (
+                <p className={`${translation}`}>
+                  <b>{word.russian}</b>
+                </p>
+              ) : (
+                <button className="game-btn" ref={ref}>
+                  Translate
+                </button>
+              )}
+            </div>
+            <p onClick={handleLearned}>I know this word</p>
           </div>
-          <p onClick={handleLearned}>I know this word</p>
-        </div>
+        </motion.div>
 
-        <img
-          className={`arrow ${pressedNextArrow}`}
-          onClick={NextCard}
-          src={next}
-          alt="Next card"
-        />
+        <motion.div
+          initial={{ opacity: 0.2, scale: 3 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 150,
+            duration: 3,
+          }}
+        >
+          <img
+            className={`arrow ${pressedNextArrow}`}
+            onClick={NextCard}
+            src={next}
+            alt="Next card"
+          />
+        </motion.div>
       </div>
+
       <div className="total-words">{counter + "/" + words.length}</div>
-      <div className="learnedWords">
-        <p>Learned words: </p>{" "}
-        <span className="count"> {learnedWordsIndex}</span>
-      </div>
-    </>
+      <motion.div
+        initial={{ opacity: 0.2, scale: 3 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 150,
+          duration: 3,
+        }}
+      >
+        <div className="learnedWords">
+          <p>Learned words: </p>{" "}
+          <span className="count"> {learnedWordsIndex}</span>
+        </div>
+      </motion.div>
+    </div>
   );
 }
 

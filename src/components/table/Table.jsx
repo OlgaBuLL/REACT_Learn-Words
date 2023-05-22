@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Context } from "../../context/Context";
+import { motion } from "framer-motion";
 
 import "../../App.scss";
 import stylesTable from "../../assets/styles/vocabulary.module.scss";
@@ -8,8 +10,9 @@ import cancelIcon from "../../assets/images/right.png";
 import deleteIcon from "../../assets/images/delete-all.png";
 import editIcon from "../../assets/images/edit.png";
 
-function Table(props) {
+export default function Table(props) {
   const { id, english, transcription, tags, russian } = props;
+  const { updateWord, deleteWord } = useContext(Context);
   const [inputText, setInputText] = useState(props);
   const [pressed, setPressed] = useState(false);
   const [isEdit, setIsEdit] = useState(true);
@@ -25,9 +28,6 @@ function Table(props) {
       [e.target.name]: e.target.value,
     });
   };
-
-  const numberRegex = /^\d+$/;
-  const errorID = "❗Only numbers in the field '№'❗";
 
   const cyrillicRegex = /^[А-Яа-я]+$/;
   const errorRussian =
@@ -45,17 +45,11 @@ function Table(props) {
       inputText.russian === ""
     ) {
       setIsEdit(false);
-    } else if (!inputText.id.match(numberRegex)) {
-      console.log(errorID);
-      // alert(errorID);
-      setIsEdit(false);
     } else if (!inputText.russian.match(cyrillicRegex)) {
       console.log(errorRussian);
-      // alert(errorRussian);
       setIsEdit(false);
     } else if (!inputText.english.match(latinRegex)) {
       console.log(errorEnglish);
-      // alert(errorEnglish);
       setIsEdit(false);
     } else {
       setIsEdit(true);
@@ -70,6 +64,7 @@ function Table(props) {
     if (isEdit) {
       handleChange();
       console.log("Form parameters:", inputText);
+      updateWord(inputText);
     }
   };
 
@@ -81,7 +76,7 @@ function Table(props) {
       inputText.tags !== tags ||
       inputText.russian !== russian
     ) {
-      inputText.id = id;
+      // inputText.id = id;
       inputText.english = english;
       inputText.transcription = transcription;
       inputText.tags = tags;
@@ -96,14 +91,24 @@ function Table(props) {
   }
   return (
     <>
-      <tr className={`word-row ${activeCard}`} onClick={checkInputs}>
+      <motion.tr
+        className={`word-row ${activeCard}`}
+        onClick={checkInputs}
+        initial={{ opacity: 0.2, scale: 3 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 150,
+          duration: 4,
+        }}
+      >
         {pressed ? (
           <>
             <th>
               <input
                 value={inputText.id}
                 name="id"
-                className={`${invalidInput(inputText.id)}`}
+                className={`input-table ${invalidInput(inputText.id)}`}
                 onChange={handleInputChange}
               />
               {/* <p className="error-message">{errorID}</p> */}
@@ -112,7 +117,7 @@ function Table(props) {
               <input
                 value={inputText.english}
                 name="english"
-                className={`${invalidInput(inputText.english)}`}
+                className={`input-table ${invalidInput(inputText.english)}`}
                 onChange={handleInputChange}
               />
               {/* <p className="error-message">{errorEnglish}</p> */}
@@ -121,7 +126,9 @@ function Table(props) {
               <input
                 value={inputText.transcription}
                 name="transcription"
-                className={`${invalidInput(inputText.transcription)}`}
+                className={`input-table ${invalidInput(
+                  inputText.transcription
+                )}`}
                 onChange={handleInputChange}
               />
             </th>
@@ -129,7 +136,7 @@ function Table(props) {
               <input
                 value={inputText.tags}
                 name="tags"
-                className={`${invalidInput(inputText.tags)}`}
+                className={`input-table ${invalidInput(inputText.tags)}`}
                 onChange={handleInputChange}
               />
             </th>
@@ -137,35 +144,34 @@ function Table(props) {
               <input
                 value={inputText.russian}
                 name="russian"
-                className={`${invalidInput(inputText.russian)}`}
+                className={`input-table ${invalidInput(inputText.russian)}`}
                 onChange={handleInputChange}
               />
               {/* <p className="error-message">{errorRussian}</p> */}
             </th>
             <th className="edit-buttons">
-              <div className="buttons">
-                {pressed ? (
-                  <>
-                    <div
-                      onClick={onSaveClick}
-                      className={`save ${!isEdit ? "disabled" : ""}`}
-                    >
-                      <img src={saveIcon} className="icon" alt="Save"></img>
-                    </div>
-                    <div onClick={onCancelClick} className="cancel">
-                      <img src={cancelIcon} className="icon" alt="Cancel"></img>
-                    </div>{" "}
-                  </>
-                ) : (
-                  <>
-                    <div onClick={handleChange} className="edit">
-                      <img src={editIcon} className="icon" alt="Edit"></img>
-                    </div>{" "}
-                    <div className="delete">
-                      <img src={deleteIcon} className="icon" alt="Delete"></img>
-                    </div>
-                  </>
-                )}
+              <div className="table-buttons">
+                <>
+                  <button
+                    onClick={onSaveClick}
+                    className={`save ${!isEdit ? "disabled" : ""}`}
+                  >
+                    <img
+                      src={saveIcon}
+                      className="icon"
+                      alt="Save"
+                      title="Save word"
+                    ></img>
+                  </button>
+                  <button onClick={onCancelClick} className="cancel">
+                    <img
+                      src={cancelIcon}
+                      className="icon"
+                      alt="Cancel"
+                      title="Discard changes"
+                    ></img>
+                  </button>{" "}
+                </>
               </div>
             </th>
           </>
@@ -177,49 +183,29 @@ function Table(props) {
             <th className={stylesTable.topic}>{tags}</th>
             <th className={stylesTable.translation}>{russian}</th>
             <th className="edit-buttons">
-              <div className="buttons">
-                {pressed ? (
-                  <>
-                    <div onClick={handleChange}>
-                      <img
-                        src={saveIcon}
-                        className="save icon"
-                        alt="Save"
-                      ></img>
-                    </div>
-                    <div onClick={handleChange}>
-                      <img
-                        src={cancelIcon}
-                        className="cancel icon"
-                        alt="Cancel"
-                      ></img>
-                    </div>{" "}
-                  </>
-                ) : (
-                  <>
-                    <div onClick={handleChange}>
-                      <img
-                        src={editIcon}
-                        className="edit icon"
-                        alt="Edit"
-                      ></img>
-                    </div>{" "}
-                    <div>
-                      <img
-                        src={deleteIcon}
-                        className="delete icon"
-                        alt="Delete"
-                      ></img>
-                    </div>
-                  </>
-                )}
+              <div className="table-buttons">
+                <button onClick={handleChange}>
+                  <img
+                    src={editIcon}
+                    className="edit icon"
+                    alt="Edit"
+                    title="Edit word"
+                  />
+                </button>{" "}
+                <button onClick={() => deleteWord(id)}>
+                  <img
+                    src={deleteIcon}
+                    className="delete icon"
+                    alt="Delete"
+                    title="Delete word"
+                  />
+                </button>
               </div>
             </th>
           </>
         )}
-      </tr>
+      </motion.tr>
+      {/* </motion.tr> */}
     </>
   );
 }
-
-export default Table;
